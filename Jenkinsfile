@@ -1,9 +1,15 @@
 pipeline {
     agent any
     tools { 
-        maven 'maven' 
+        maven 'Maven' 
+
     }
          stages {
+         stage ('git clone') {
+            steps {
+                git  'https://github.com/gannapraveen/web-maven.git' 
+            }
+         }
           stage ('compile') {
             steps {
                 bat "mvn compile" 
@@ -27,4 +33,3 @@ pipeline {
     
     }
 }
-
